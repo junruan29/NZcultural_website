@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - New Zealand Culture & Society</title>
+    <link rel="stylesheet" href="loginpage-css.css">
+</head>
+<body>
+	<!-- It is the header part same as the home page -->
+    <header class="header">
+        <img src="logo.jpg" alt="Company Logo" class="logo">
+        <h1>Welcome to New Zealand</h1>
+        <a href="index.html" class="circular-home-button">Home</a>
+    </header>
+
+<main>
+	<!-- These part is about login part it is about user to input the username and password -->
+    <section class="background-wrapper">
+        <section class="login-form">
+            <h3>Sign In</h3>
+            <form id="loginForm" action="cultural_practices.html">
+                <label for="username">User ID:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+             <button type="submit">Sign In</button>
+            </form>
+            <a href="Homepage.html">Forgot password?</a>
+        </section>
+    </section>
+</main>
+
+    <footer>
+        <p>Copyright©2024, New Zealand Culture & Society. All rights reserved.</p>
+    </footer>
+
+    <script>
+			const validUsers = [
+			            { username: "Jun", password: "aspira2" },
+			            { username: "administrator", password: "aspira2" }
+			        ];
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                // Retrieve the username and password entered by the user
+                const inputUsername = document.getElementById("username").value;
+                const inputPassword = document.getElementById("password").value;
+            
+                console.log("Submit triggered");
+                console.log("Input Username:", inputUsername);
+                console.log("Input Password:", inputPassword);
+            
+                // Check if user input is correct
+                const isValidUser = validUsers.some(user => user.username === inputUsername && user.password === inputPassword);
+            
+                console.log("Is valid user:", isValidUser); // Is the output a valid user
+            
+                if (isValidUser) {
+                    console.log("User is valid, redirecting to cultural_practices.html");
+                   window.location.href = "cultural_practices.html"; // Use 'href' to jump
+                } else {
+                    console.log("Invalid username or password");
+                    event.preventDefault(); // Block form submission
+                    alert("Please enter the username and password correctly");
+                }
+            });
+
+        </script>
+</body>
+</html>
